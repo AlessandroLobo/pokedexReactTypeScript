@@ -5,6 +5,9 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './routes';
 import { RecoilRoot } from 'recoil';
+import { ResetCss } from './theme/globalStyles';
+import { ThemeProvider } from 'styled-components';
+import { dark } from './theme';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,9 +15,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <StrictMode>
     <RecoilRoot>
+      <ThemeProvider theme={dark()}>
+      <ResetCss />
       <BrowserRouter>
         <AppRouter />
       </BrowserRouter>
+      </ThemeProvider>
     </RecoilRoot>
   </StrictMode>
 );

@@ -7,6 +7,8 @@ import { atomPokemon } from "../../store/atoms";
 
 // recoil: selectors
 import { selectorGetPokemon } from "../../store/selectors";
+import Card from "../../components/Card";
+
 
 
 // ::
@@ -31,17 +33,16 @@ const HomePage = () => {
       {getLoadablePokemon?.state === "loading" && <div>Loading...</div>}
       {getLoadablePokemon?.state === 'hasValue' &&
         getLoadablePokemon?.contents !== undefined && (
-          <div>
-            <img
-              width="150px"
-              src={getLoadablePokemon?.contents?.sprites?.front_default}
-              alt={`Pokemon - ${getLoadablePokemon?.contents?.name}`}
-            />
-            <h3>{getLoadablePokemon?.contents?.name}</h3>
-          </div>
+          <Card
+            image={getLoadablePokemon?.contents?.sprites?.other?.dream_world?.front_default}
+            name={getLoadablePokemon?.contents?.name}
+          />
+
         )}
     </div>
   );
 };
 
 export default HomePage
+
+//tempo video 12:21
